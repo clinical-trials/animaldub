@@ -9,7 +9,11 @@
     { "key": "ralph",     "emoji": "👴", "name": "Grumpy Ol' Ralph", "blurb": "Get off my lawn, human" },
     { "key": "whisper",   "emoji": "🤫", "name": "Conspiracy Cat",   "blurb": "The humans are listening" },
     { "key": "boing",     "emoji": "🤪", "name": "Boing",            "blurb": "Chaotic bouncy energy" },
-    { "key": "overlord",  "emoji": "🤖", "name": "Robo-Overlord",    "blurb": "Deep, angry, world-domination vibes" }
+    { "key": "overlord",  "emoji": "🤖", "name": "Robo-Overlord",    "blurb": "Deep, angry, world-domination vibes" },
+    { "key": "clown",     "emoji": "🤡", "name": "Circus Clown",      "blurb": "Every day is a show" },
+    { "key": "bubbles",   "emoji": "🫧", "name": "Fishbowl Philosopher", "blurb": "Deep thoughts, underwater" },
+    { "key": "chipmunk",  "emoji": "🐿️", "name": "Lil' Squeaky",       "blurb": "Tiny pet, huge opinions" },
+    { "key": "diva",      "emoji": "🌟", "name": "The Diva",          "blurb": "A living legend, obviously" }
   ],
   "lines": [
     "Does this fur make me look fat?",

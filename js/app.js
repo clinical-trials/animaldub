@@ -57,7 +57,7 @@ async function init() {
     .forEach(id => els[id] = document.getElementById(id) || $('#' + id));
   els.canvas = $('#stitchCanvas');
 
-  try { state.manifest = await (await fetch('assets/manifest.json')).json(); }
+  try { state.manifest = await (await fetch('assets/manifest.json?b=' + Date.now())).json(); }
   catch (e) { return setStatus(els.captureStatus, 'Could not load voices.', 'err'); }
   if (state.manifest.tagline) els.tagline.textContent = state.manifest.tagline;
 

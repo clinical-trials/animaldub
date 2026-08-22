@@ -18,6 +18,10 @@ VOICES=(
   "whisper|Whisper|-"
   "boing|Boing|-"
   "overlord|Fred|aresample=44100,asetrate=44100*0.75,aresample=44100,atempo=1.33,aecho=0.8:0.85:55:0.35"
+  "clown|Jester|-"
+  "bubbles|Bubbles|-"
+  "chipmunk|Fred|aresample=44100,asetrate=44100*1.4,aresample=44100,atempo=0.72"
+  "diva|Superstar|-"
 )
 
 LINES=(

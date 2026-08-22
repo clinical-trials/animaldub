@@ -90,6 +90,7 @@ main{max-width:560px;margin:0 auto;padding:0 16px 40px}
   box-shadow:var(--shadow);transition:transform .12s}
 .pet-card:hover{transform:translateY(-3px) rotate(-1deg)}
 .pet-card .pet{font-size:3.2rem;line-height:1;animation:talk 1.6s ease-in-out infinite}
+.pet-card .pet-photo{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:14px;display:block}
 .pet-card:nth-child(2n) .pet{animation-delay:.4s}
 .pet-card:nth-child(3n) .pet{animation-delay:.8s}
 @keyframes talk{0%,100%{transform:rotate(-4deg) scale(1)}50%{transform:rotate(4deg) scale(1.08)}}
