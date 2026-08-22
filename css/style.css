@@ -95,11 +95,16 @@ main{max-width:560px;margin:0 auto;padding:0 16px 40px}
 .pet-card.talkable:active{transform:scale(.98)}
 .photo-stage{position:relative;width:100%;aspect-ratio:1/1;border-radius:14px;overflow:hidden}
 .photo-stage .pet-photo{position:absolute;inset:0;width:100%;height:100%;border-radius:0}
-.photo-stage .jaw{position:absolute;left:0;right:0;bottom:0;height:42%;
-  background-size:100% 238%;background-position:center bottom;background-repeat:no-repeat;
-  transform-origin:center top;transform:scaleY(1);pointer-events:none;
-  -webkit-mask-image:linear-gradient(to bottom,transparent,#000 20%);
-          mask-image:linear-gradient(to bottom,transparent,#000 20%)}
+.photo-stage .mouth{position:absolute;transform:translate(-50%,-50%);aspect-ratio:1.5/1;
+  opacity:0;transition:opacity .1s;pointer-events:none}
+.pet-card.talking .mouth{opacity:1}
+.mouth .jawinner{position:absolute;inset:0;border-radius:50% / 55%;
+  background:radial-gradient(ellipse at 50% 28%,#3a0a10,#120103 70%);
+  transform-origin:center top;transform:scaleY(.14);overflow:hidden;
+  -webkit-mask-image:radial-gradient(ellipse at 50% 50%,#000 46%,transparent 74%);
+          mask-image:radial-gradient(ellipse at 50% 50%,#000 46%,transparent 74%)}
+.mouth .tongue{position:absolute;left:50%;bottom:7%;width:44%;aspect-ratio:1.8/1;
+  transform:translateX(-50%);border-radius:50%;background:#d9647f}
 .pet-card.talking{box-shadow:0 0 0 3px var(--brand),var(--shadow)}
 .pet-card.talkable::after{content:"🔊";position:absolute;top:10px;right:10px;font-size:1rem;opacity:.7}
 .pet-card:nth-child(2n) .pet{animation-delay:.4s}

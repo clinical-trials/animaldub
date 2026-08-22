@@ -81,18 +81,18 @@ function galleryTalk(card) {
   document.querySelectorAll('#gallery .talkable').forEach(c => c.classList.remove('talking'));
   clearInterval(galleryFlap);
   if (galleryAudio) { galleryAudio.pause(); galleryAudio = null; }
-  const jaw = card.querySelector('.jaw');
+  const jaw = card.querySelector('.jawinner');
   const emoji = card.querySelector('.pet');
   card.classList.add('talking');
   const t0 = performance.now();
   galleryFlap = setInterval(() => {
     const p = performance.now() - t0;
-    if (jaw) jaw.style.transform = `scaleY(${(1 + 0.16 * Math.abs(Math.sin(p / 95))).toFixed(3)})`;
+    if (jaw) jaw.style.transform = `scaleY(${(0.18 + 0.82 * Math.abs(Math.sin(p / 90))).toFixed(3)})`;
     if (emoji) emoji.style.transform = `scale(${(1 + 0.08 * Math.abs(Math.sin(p / 110))).toFixed(3)}) rotate(${(5 * Math.sin(p / 120)).toFixed(1)}deg)`;
   }, 40);
   const stop = () => {
     clearInterval(galleryFlap); card.classList.remove('talking');
-    if (jaw) jaw.style.transform = 'scaleY(1)';
+    if (jaw) jaw.style.transform = 'scaleY(0.18)';
     if (emoji) emoji.style.transform = '';
   };
   galleryAudio = new Audio(`${state.manifest.audioDir}/${card.dataset.voice}_${card.dataset.line}.mp3`);

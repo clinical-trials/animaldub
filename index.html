@@ -6,7 +6,7 @@
 <title>Animal Dub — give your pet a voice</title>
 <meta name="description" content="Record your pet, pick a funny line and a voice, and get a dubbed video to save and share." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="stylesheet" href="css/style.css?v=14" />
+<link rel="stylesheet" href="css/style.css?v=17" />
 </head>
 <body>
 <header class="hero">
@@ -72,16 +72,20 @@
   <p class="gallery-sub">👆 Tap a pet to hear it talk — watch the mouth move.</p>
   <div class="gallery" id="gallery">
     <figure class="pet-card talkable" data-voice="overlord" data-line="1">
-      <div class="photo-stage"><img class="pet-photo" src="assets/photos/dog-yawning.jpg" alt="Dog with mouth wide open" /><span class="jaw" style="background-image:url(assets/photos/dog-yawning.jpg)"></span></div>
+      <div class="photo-stage"><img class="pet-photo" src="assets/photos/dog-yawning.jpg" alt="Dog with mouth wide open" />
+        <div class="mouth" style="left:61%;top:72%;width:23%"><div class="jawinner"><div class="tongue"></div></div></div></div>
       <div class="bubble">Bring me to your refrigerator. Immediately.</div><span class="vtag">🤖 Robo-Overlord</span></figure>
     <figure class="pet-card talkable" data-voice="aristocat" data-line="0">
-      <div class="photo-stage"><img class="pet-photo" src="assets/photos/cat-yawning.jpg" alt="Cat yawning, mouth open" /><span class="jaw" style="background-image:url(assets/photos/cat-yawning.jpg)"></span></div>
+      <div class="photo-stage"><img class="pet-photo" src="assets/photos/cat-yawning.jpg" alt="Cat yawning, mouth open" />
+        <div class="mouth" style="left:75%;top:40%;width:15%"><div class="jawinner"><div class="tongue"></div></div></div></div>
       <div class="bubble">Does this fur make me look fat?</div><span class="vtag">👑 Snooty Aristocat</span></figure>
     <figure class="pet-card talkable" data-voice="doomsday" data-line="3">
-      <div class="photo-stage"><img class="pet-photo" src="assets/photos/dog-panting.jpg" alt="Dog panting with tongue out" /><span class="jaw" style="background-image:url(assets/photos/dog-panting.jpg)"></span></div>
+      <div class="photo-stage"><img class="pet-photo" src="assets/photos/dog-panting.jpg" alt="Dog panting with tongue out" />
+        <div class="mouth" style="left:52%;top:64%;width:22%"><div class="jawinner"><div class="tongue"></div></div></div></div>
       <div class="bubble">I am not fat. I am aggressively fluffy.</div><span class="vtag">☠️ Doomsday Doggo</span></figure>
     <figure class="pet-card talkable" data-voice="cosmic" data-line="6">
-      <div class="photo-stage"><img class="pet-photo" src="assets/photos/cat-yawning2.jpg" alt="Cat with mouth open" /><span class="jaw" style="background-image:url(assets/photos/cat-yawning2.jpg)"></span></div>
+      <div class="photo-stage"><img class="pet-photo" src="assets/photos/cat-yawning2.jpg" alt="Cat with mouth open" />
+        <div class="mouth" style="left:45%;top:52%;width:23%"><div class="jawinner"><div class="tongue"></div></div></div></div>
       <div class="bubble">I knocked it off the table. On purpose. For science.</div><span class="vtag">👽 Cosmic Cat</span></figure>
     <figure class="pet-card talkable emoji-card" data-voice="boing" data-line="2"><div class="pet">🦮</div><div class="bubble">I went to middle school too, you know.</div><span class="vtag">🤪 Boing</span></figure>
     <figure class="pet-card talkable emoji-card" data-voice="ralph" data-line="8"><div class="pet">🐩</div><div class="bubble">You DARE approach me without snacks?</div><span class="vtag">👴 Grumpy Ol' Ralph</span></figure>
@@ -185,6 +189,6 @@
 
 <canvas id="stitchCanvas" hidden></canvas>
 <script src="js/gif.js?v=1"></script>
-<script src="js/app.js?v=14" type="module"></script>
+<script src="js/app.js?v=17" type="module"></script>
 </body>
 </html>
