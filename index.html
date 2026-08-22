@@ -6,7 +6,7 @@
 <title>Animal Dub — give your pet a voice</title>
 <meta name="description" content="Record your pet, pick a funny line and a voice, and get a dubbed video to save and share." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="stylesheet" href="css/style.css?v=13" />
+<link rel="stylesheet" href="css/style.css?v=14" />
 </head>
 <body>
 <header class="hero">
@@ -165,9 +165,15 @@
       <video id="resultVideo" playsinline controls></video>
       <div class="btn-row">
         <a class="btn primary" id="downloadLink" download="animal-dub.mp4">⬇️ Save video</a>
+        <button class="btn" id="btnGif">🎞️ Save as GIF loop</button>
         <button class="btn" id="btnShare" hidden>📤 Share</button>
       </div>
       <p class="hint small" id="formatNote"></p>
+      <div class="gif-out" id="gifOut" hidden>
+        <img id="gifPreview" alt="Animated GIF loop of your dub" />
+        <a class="btn primary" id="gifDownload" download="animal-dub.gif">⬇️ Save GIF</a>
+        <p class="hint small">Silent looping GIF — perfect for texts, Discord &amp; X. (Videos keep the voice.)</p>
+      </div>
     </div>
   </section>
 </main>
@@ -178,6 +184,7 @@
 </footer>
 
 <canvas id="stitchCanvas" hidden></canvas>
-<script src="js/app.js?v=13" type="module"></script>
+<script src="js/gif.js?v=1"></script>
+<script src="js/app.js?v=14" type="module"></script>
 </body>
 </html>

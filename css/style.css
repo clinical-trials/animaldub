@@ -191,6 +191,8 @@ details.custom textarea{width:100%;min-height:64px;border-radius:12px;border:1px
 /* RESULT */
 .result{margin-top:18px;border-top:1px solid var(--line);padding-top:16px}
 .result video{width:100%;border-radius:14px;background:#000;margin-bottom:12px}
+.gif-out{margin-top:14px;display:grid;gap:10px;justify-items:center;text-align:center}
+.gif-out img{max-width:240px;width:100%;border-radius:14px;border:1px solid var(--line);background:#000}
 
 footer{max-width:560px;margin:0 auto;padding:8px 20px 40px;text-align:center;color:var(--muted);font-size:.78rem}
 footer code{background:var(--card2);padding:1px 6px;border-radius:6px}

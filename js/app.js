@@ -53,7 +53,7 @@ async function init() {
    'fileInput','btnSample','btnCritter','critterPicker','critterChips','captureStatus','voiceGrid','lineChips',
    'customText','btnPreviewVoice','stickerRow','startSlider','startVal','duckToggle','btnMake','makeStatus',
    'result','resultVideo','downloadLink','btnShare','formatNote','dogSvg','dogBubble','heroText','btnTalk',
-   'charChips','voiceSelect']
+   'charChips','voiceSelect','btnGif','gifOut','gifPreview','gifDownload']
     .forEach(id => els[id] = document.getElementById(id) || $('#' + id));
   els.canvas = $('#stitchCanvas');
 
@@ -311,6 +311,7 @@ function wireControls() {
   els.duckToggle.addEventListener('change', () => (state.duck = els.duckToggle.checked));
   els.btnPreviewVoice.addEventListener('click', previewVoice);
   els.btnMake.addEventListener('click', makeDub);
+  els.btnGif.addEventListener('click', saveGif);
   wireStickerDrag();
 }
 function refreshMakeButton() {
@@ -354,7 +355,7 @@ function wireStickerDrag() {
 async function makeDub() {
   if (state.customText && state.lineIndex === null) return previewCustom();
   setStatus(els.makeStatus, 'Rendering… it plays through once while we record. Hang tight.', 'work');
-  els.btnMake.disabled = true; els.result.hidden = true;
+  els.btnMake.disabled = true; els.result.hidden = true; els.gifOut.hidden = true;
   try {
     const blob = state.mode === 'critter' ? await renderCritterClip() : await renderVideoClip();
     const ext = (blob.type || '').includes('mp4') ? 'mp4' : 'webm';
@@ -495,6 +496,51 @@ function drawStickerOn(ctx, W, H) {
   ctx.font = `${state.sticker.size * H}px "Apple Color Emoji","Segoe UI Emoji",serif`;
   ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
   ctx.fillText(state.sticker.emoji, state.sticker.nx * W, state.sticker.ny * H);
+}
+
+/* ---------------- GIF loop export ---------------- */
+async function saveGif() {
+  if (!els.resultVideo.src) return;
+  if (typeof window.encodeGIF !== 'function') return setStatus(els.makeStatus, 'GIF encoder not loaded.', 'err');
+  els.btnGif.disabled = true;
+  setStatus(els.makeStatus, 'Building GIF loop… (a few seconds)', 'work');
+  try {
+    const v = document.createElement('video');
+    v.src = els.resultVideo.src; v.muted = true; v.playsInline = true;
+    await new Promise((res, rej) => { v.onloadedmetadata = res; v.onerror = () => rej(new Error('load failed')); });
+    const dur = Math.min(v.duration || 3, 5);
+    const fps = 12, nFrames = Math.max(6, Math.round(dur * fps));
+    const scale = Math.min(1, 288 / (v.videoWidth || 288));
+    const W = Math.max(2, Math.round((v.videoWidth || 288) * scale) & ~1);
+    const H = Math.max(2, Math.round((v.videoHeight || 512) * scale) & ~1);
+    const cv = document.createElement('canvas'); cv.width = W; cv.height = H;
+    const ctx = cv.getContext('2d', { willReadFrequently: true });
+    const frames = [];
+    for (let i = 0; i < nFrames; i++) {
+      await seekVideo(v, (i / nFrames) * dur);
+      ctx.drawImage(v, 0, 0, W, H);
+      frames.push(ctx.getImageData(0, 0, W, H).data);
+      setStatus(els.makeStatus, `Building GIF loop… ${Math.round((i + 1) / nFrames * 100)}%`, 'work');
+    }
+    const blob = window.encodeGIF(frames, W, H, { fps, loop: 0 });
+    const url = URL.createObjectURL(blob);
+    els.gifPreview.src = url; els.gifDownload.href = url;
+    els.gifOut.hidden = false;
+    setStatus(els.makeStatus, `GIF ready! 🎞️ ${(blob.size / 1024 | 0)} KB — save it below.`, 'ok');
+    els.gifOut.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  } catch (e) {
+    console.error(e);
+    setStatus(els.makeStatus, 'GIF build failed: ' + e.message, 'err');
+  } finally { els.btnGif.disabled = false; }
+}
+function seekVideo(v, t) {
+  return new Promise(res => {
+    let done = false;
+    const fin = () => { if (done) return; done = true; v.removeEventListener('seeked', fin); res(); };
+    v.addEventListener('seeked', fin);
+    try { v.currentTime = Math.max(0, Math.min(t, (v.duration || t + 1) - 0.03)); } catch (_) { fin(); }
+    setTimeout(fin, 1200);
+  });
 }
 
 /* ---------------- share / util ---------------- */
