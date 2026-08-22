@@ -1,0 +1,25 @@
+{
+  "brand": "Animal Dub",
+  "tagline": "Give your pet the voice they clearly already have.",
+  "audioDir": "assets/voices",
+  "voices": [
+    { "key": "aristocat", "emoji": "👑", "name": "Snooty Aristocat", "blurb": "Posh, unbothered, above it all" },
+    { "key": "doomsday",  "emoji": "☠️", "name": "Doomsday Doggo",  "blurb": "Everything is a tragedy" },
+    { "key": "cosmic",    "emoji": "👽", "name": "Cosmic Cat",       "blurb": "Beams in from another galaxy" },
+    { "key": "ralph",     "emoji": "👴", "name": "Grumpy Ol' Ralph", "blurb": "Get off my lawn, human" },
+    { "key": "whisper",   "emoji": "🤫", "name": "Conspiracy Cat",   "blurb": "The humans are listening" },
+    { "key": "boing",     "emoji": "🤪", "name": "Boing",            "blurb": "Chaotic bouncy energy" },
+    { "key": "overlord",  "emoji": "🤖", "name": "Robo-Overlord",    "blurb": "Deep, angry, world-domination vibes" }
+  ],
+  "lines": [
+    "Does this fur make me look fat?",
+    "Bring me to your refrigerator. Immediately.",
+    "I went to middle school too, you know.",
+    "I am not fat. I am aggressively fluffy.",
+    "You call that a belly rub? Do it again, human.",
+    "I have reviewed the household budget. We are getting more treats.",
+    "I knocked it off the table. On purpose. For science.",
+    "Kneel. Then feed me. In that order.",
+    "You DARE approach me without snacks?"
+  ]
+}
